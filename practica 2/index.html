@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 2 Navigator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    
+
+    <div class="container-fluid">
+        <div class="row m-5">
+            <div class="col-12 text-center">
+                <button class="btn btn-primary" onclick="obtenerDatos()">Obtener datos de la navegacion</button>
+            </div>
+            <ul id="navegacion">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var navegator = document.getElementById("navegacion");
+
+        var datos = navegator.getElementsByTagName("li");
+
+        function  obtenerDatos() {
+            console.log("Hola")
+            datos[0].innerHTML = `El nombre del navegador es ${navigator.appName}`;
+            datos[1].innerHTML = `La version del navegador es ${navigator.appVersion}`;
+            datos[2].innerHTML = `Este es tu estatus de internet ${navigator.onLine}`;
+            datos[3].innerHTML = `Plataforma ${navigator.platform}`
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://kit.fontawesome.com/725bad6274.js" crossorigin="anonymous"></script> <!-- Font Awesome -->
+
+</body>
+</html>
