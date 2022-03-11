@@ -87,14 +87,12 @@
                 const marcador = new google.maps.Marker(propiedadesMarcador);
                 map.setCenter(posicion);
 
-
-
                 const infoWindow = new google.maps.InfoWindow({
                     content: informacion
                 })
 
                 marcador.addListener("click", () => {
-                    infoWindow.open();
+                    infoWindow.open(map, marcador);
                 })
 
             }
