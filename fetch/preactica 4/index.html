@@ -56,7 +56,7 @@
             const markers = await getMarkers();
 
             for (let marker of markers) {
-
+                'use strict';
                 console.log(marker.CountryName);
                 var infoWindow = "<strong>Pais: </strong>" + marker.CountryName
                 var info = new google.maps.InfoWindow({
