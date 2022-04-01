@@ -57,8 +57,8 @@
 
             for (let marker of markers) {
                 'use strict';
-                console.log(marker.CountryName);
-                var infoWindow = "<strong>Pais: </strong>" + marker.CountryName
+                var m = marker.CountryName
+                var infoWindow = "<strong>Pais: </strong>" + m;
                 var info = new google.maps.InfoWindow({
                     content: infoWindow
                 })
