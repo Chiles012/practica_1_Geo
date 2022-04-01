@@ -46,13 +46,7 @@
         }
 
         async function getMarkers() {
-            const response = await fetch("https://sistemasgeo.com/2022/fetch/paises.json", {
-                method: 'GET',
-                headers: new Headers({
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
-                }),
-            });
+            const response = await fetch("paises.json");
             return await response.json()
         }
 
