@@ -58,7 +58,7 @@
             for (let marker of markers) {
 
                 console.log(marker);
-                const infoWindow = `<strong>Pais: </strong> ${marker.CountryName}`
+                var infoWindow = `<strong>Pais: </strong> ${marker.CountryName}`
                 var info = new google.maps.InfoWindow({
                     content: infoWindow
                 })
