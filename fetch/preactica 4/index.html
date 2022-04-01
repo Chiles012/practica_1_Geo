@@ -55,10 +55,10 @@
 
             const markers = await getMarkers();
 
-            for (const marker of markers) {
+            for (let marker of markers) {
 
                 console.log(marker);
-                let infoWindow = `<strong>Pais: </strong> ${marker.CountryName}`
+                const infoWindow = `<strong>Pais: </strong> ${marker.CountryName}`
                 var info = new google.maps.InfoWindow({
                     content: infoWindow
                 })
