@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,26 +8,26 @@
     <title>Practica 4 Fetch</title>
 
     <style>
-
         #map {
             height: 100vh;
             width: 100vw;
         }
 
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
             padding: 0;
         }
-
     </style>
 
 </head>
+
 <body>
-    
+
     <div id="map">
 
-        
+
 
     </div>
 
@@ -45,8 +46,14 @@
         }
 
         async function getMarkers() {
-            const response = await fetch("https://sistemasgeo.com/2022/fetch/paises.json");
-            return await jsonResponse.json()
+            const response = await fetch("https://sistemasgeo.com/2022/fetch/paises.json", {
+                method: 'GET',
+                headers: new Headers({
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                }),
+            });
+            return await response.json()
         }
 
         async function iniciaMapa() {
@@ -71,7 +78,7 @@
             }
 
 
-            
+
         }
 
     </script>
@@ -81,4 +88,5 @@
         async defer></script>
 
 </body>
+
 </html>
