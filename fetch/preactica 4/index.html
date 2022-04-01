@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 4 Fetch</title>
+
+    <style>
+
+        #map {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div id="map">
+
+        
+
+    </div>
+
+    <script>
+
+        let map = document.getElementById("map");
+
+        var coordenadas = {
+            lat: 0,
+            lng: 0
+        }
+
+        var propiedades = {
+            center: coordenadas,
+            zoom: 2
+        }
+
+        async function getMarkers() {
+            const response = await fetch("https://sistemasgeo.com/2022/fetch/paises.json");
+            return await jsonResponse.json()
+        }
+
+        async function iniciaMapa() {
+            const map = new google.maps.Map(document.getElementById("map"), propiedades)
+
+            const markers = await getMarkers();
+
+            for (const marker of markers) {
+
+                let infoWindow = `<strong>Pais: </strong> ${marker.CountryName}`
+                var info = new google.maps.infoWindow({
+                    content: infoWindow
+                })
+
+                let mark = new google.maps.Marker({
+                    map,
+                    position: new google.maps.LatLng(marker.CapitalLatitude, marker.CapitalLongitude),
+                    title: marker.CountryName
+                })
+
+                mark.addListener('click', () => info.open(map, mark));
+            }
+
+
+            
+        }
+
+    </script>
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMrQgga-C5zCuZLTVk2MPVzX7naqKZXZU&callback=iniciaMapa"
+        async defer></script>
+
+</body>
+</html>
